@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>言灵游戏进度测试</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .test-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .test-button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        .test-button:hover {
+            background: #5a6fd8;
+        }
+        .progress-display {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        .battle-result {
+            display: inline-block;
+            margin: 5px;
+            padding: 10px;
+            background: #e9ecef;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>🎮 言灵游戏进度保存测试</h1>
+        
+        <div class="test-section">
+            <h3>📊 当前用户状态</h3>
+            <div id="userStatus">检查中...</div>
+        </div>
+        
+        <div class="test-section">
+            <h3>🎯 模拟战斗结果</h3>
+            <button class="test-button" onclick="simulateBattle('wordBattle', 95, true)">单词战斗 S级</button>
+            <button class="test-button" onclick="simulateBattle('grammarBattle', 85, true)">语法战斗 A级</button>
+            <button class="test-button" onclick="simulateBattle('readingBattle', 75, false)">阅读战斗 B级</button>
+            <button class="test-button" onclick="simulateBattle('wordBattle', 65, false)">单词战斗 C级</button>
+        </div>
+        
+        <div class="test-section">
+            <h3>📈 当前进度</h3>
+            <div id="progressDisplay" class="progress-display">
+                <div>总进度: <span id="totalProgress">0%</span></div>
+                <div class="battle-result">
+                    单词战斗: 分数 <span id="wordScore">0</span>, 尝试 <span id="wordAttempts">0</span>, 完成 <span id="wordCompleted">否</span>
+                </div>
+                <div class="battle-result">
+                    语法战斗: 分数 <span id="grammarScore">0</span>, 尝试 <span id="grammarAttempts">0</span>, 完成 <span id="grammarCompleted">否</span>
+                </div>
+                <div class="battle-result">
+                    阅读战斗: 分数 <span id="readingScore">0</span>, 尝试 <span id="readingAttempts">0</span>, 完成 <span id="readingCompleted">否</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="test-section">
+            <h3>🔄 测试操作</h3>
+            <button class="test-button" onclick="refreshProgress()">刷新进度</button>
+            <button class="test-button" onclick="resetProgress()">重置进度</button>
+            <button class="test-button" onclick="exportProgress()">导出进度</button>
+        </div>
+        
+        <div class="test-section">
+            <h3>📝 测试日志</h3>
+            <div id="testLog" style="background: #f8f9fa; padding: 10px; border-radius: 5px; height: 200px; overflow-y: auto; font-family: monospace; font-size: 12px;"></div>
+        </div>
+    </div>
+
+    <script src="js/userDataManager.js"></script>
+    <script>
+        let testLog = [];
+        
+        function log(message) {
+            const timestamp = new Date().toLocaleTimeString();
+            testLog.push(`[${timestamp}] ${message}`);
+            document.getElementById('testLog').innerHTML = testLog.join('<br>');
+            document.getElementById('testLog').scrollTop = document.getElementById('testLog').scrollHeight;
+        }
+        
+        // 页面加载时检查用户状态
+        document.addEventListener('DOMContentLoaded', function() {
+            log('页面加载完成，开始测试...');
+            checkUserStatus();
+            refreshProgress();
+        });
+        
+        function checkUserStatus() {
+            if (window.userDataManager) {
+                if (window.userDataManager.isLoggedIn()) {
+                    const user = window.userDataManager.getCurrentUser();
+                    document.getElementById('userStatus').innerHTML = `✅ 已登录: ${user.username}`;
+                    log(`用户已登录: ${user.username}`);
+                } else {
+                    document.getElementById('userStatus').innerHTML = '❌ 未登录';
+                    log('用户未登录');
+                }
+            } else {
+                document.getElementById('userStatus').innerHTML = '❌ userDataManager 未加载';
+                log('userDataManager 未加载');
+            }
+        }
+        
+        function simulateBattle(battleType, score, completed) {
+            if (!window.userDataManager || !window.userDataManager.isLoggedIn()) {
+                log('错误: 用户未登录，无法保存进度');
+                return;
+            }
+            
+            window.userDataManager.updateKotodamaProgress(battleType, score, completed);
+            log(`模拟战斗: ${battleType}, 分数: ${score}, 完成: ${completed}`);
+            refreshProgress();
+        }
+        
+        function refreshProgress() {
+            if (!window.userDataManager || !window.userDataManager.isLoggedIn()) {
+                log('无法刷新进度: 用户未登录');
+                return;
+            }
+            
+            const userStats = window.userDataManager.getUserStatsSummary();
+            if (userStats && userStats.kotodamaProgress) {
+                const progress = userStats.kotodamaProgress;
+                
+                document.getElementById('totalProgress').textContent = progress.totalProgress + '%';
+                
+                document.getElementById('wordScore').textContent = progress.wordBattle.score;
+                document.getElementById('wordAttempts').textContent = progress.wordBattle.attempts;
+                document.getElementById('wordCompleted').textContent = progress.wordBattle.completed ? '是' : '否';
+                
+                document.getElementById('grammarScore').textContent = progress.grammarBattle.score;
+                document.getElementById('grammarAttempts').textContent = progress.grammarBattle.attempts;
+                document.getElementById('grammarCompleted').textContent = progress.grammarBattle.completed ? '是' : '否';
+                
+                document.getElementById('readingScore').textContent = progress.readingBattle.score;
+                document.getElementById('readingAttempts').textContent = progress.readingBattle.attempts;
+                document.getElementById('readingCompleted').textContent = progress.readingBattle.completed ? '是' : '否';
+                
+                log('进度已刷新');
+            } else {
+                log('无法获取进度数据');
+            }
+        }
+        
+        function resetProgress() {
+            if (!window.userDataManager || !window.userDataManager.isLoggedIn()) {
+                log('错误: 用户未登录，无法重置进度');
+                return;
+            }
+            
+            const user = window.userDataManager.getCurrentUser();
+            user.profile.kotodamaProgress = {
+                wordBattle: { completed: false, score: 0, attempts: 0 },
+                grammarBattle: { completed: false, score: 0, attempts: 0 },
+                readingBattle: { completed: false, score: 0, attempts: 0 },
+                totalProgress: 0
+            };
+            
+            window.userDataManager.saveCurrentUser();
+            window.userDataManager.saveUser(user);
+            
+            log('进度已重置');
+            refreshProgress();
+        }
+        
+        function exportProgress() {
+            if (!window.userDataManager || !window.userDataManager.isLoggedIn()) {
+                log('错误: 用户未登录，无法导出进度');
+                return;
+            }
+            
+            const userStats = window.userDataManager.getUserStatsSummary();
+            if (userStats && userStats.kotodamaProgress) {
+                const progressData = JSON.stringify(userStats.kotodamaProgress, null, 2);
+                log('进度数据导出:');
+                log(progressData);
+            }
+        }
+    </script>
+</body>
+</html>

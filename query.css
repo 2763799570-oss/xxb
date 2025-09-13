@@ -1,0 +1,531 @@
+/* RESPONSIVE DESIGN FOR JAPANESE LEARNING WEBSITE */
+
+/* 语言切换器响应式设计 */
+@media (max-width: 768px) {
+  .language-switcher {
+    margin-right: 1rem;
+  }
+
+  .lang-btn {
+    padding: 0.4rem 0.6rem;
+    font-size: 1rem;
+  }
+
+  .lang-btn .lang-text {
+    display: none;
+  }
+
+  .lang-btn .flag {
+    font-size: 1.2rem;
+  }
+}
+
+/* Tablet styles */
+@media (max-width: 1024px) {
+  html {
+    font-size: 60%;
+  }
+
+  .header__title {
+    max-width: 100rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .header__text-container h1 {
+    font-size: 4.5rem;
+  }
+
+  .header__text-container h3 {
+    font-size: 2rem;
+  }
+
+  .features {
+    margin: 0 6rem;
+    gap: 3rem;
+  }
+
+  .operations {
+    margin: 8rem 3rem 0 3rem;
+  }
+
+  .operations__content {
+    padding: 2rem 4rem 5rem 4rem;
+  }
+
+  .testimonial {
+    width: 80%;
+  }
+
+  .nav {
+    padding: 0 3rem;
+  }
+
+  .nav__item {
+    margin-left: 2rem;
+  }
+}
+
+/* Mobile landscape */
+@media (max-width: 768px) {
+  html {
+    font-size: 55%;
+  }
+
+  .nav {
+    padding: 0 2rem;
+  }
+
+  .nav__links {
+    position: fixed;
+    background-color: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transform: translateX(100%);
+    transition: all 0.5s ease-in;
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+  }
+
+  .nav-open .nav__links {
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+    transform: translateX(0);
+  }
+
+  .nav__item {
+    margin: 2rem 0;
+  }
+
+  .nav__link:link,
+  .nav__link:visited {
+    font-size: 3rem;
+    font-weight: 500;
+  }
+
+  .nav__linkregister:link,
+  .nav__linkregister:visited {
+    font-size: 3rem;
+    padding: 1.5rem 3rem;
+  }
+
+  .btn-mobile-nav {
+    display: block;
+    z-index: 9999;
+  }
+
+  .icon-mobile-nav {
+    height: 4.8rem;
+    width: 4.8rem;
+    color: var(--japanese-red);
+  }
+
+  .nav-open .icon-mobile-nav[name="close-outline"] {
+    display: block;
+  }
+
+  .nav-open .icon-mobile-nav[name="menu-outline"] {
+    display: none;
+  }
+
+  .header__title {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 4rem;
+  }
+
+  .header__img {
+    grid-column: 1;
+    grid-row: 2;
+    transform: translateY(0);
+    width: 80%;
+    justify-self: center;
+  }
+
+  .header__text-container h1 {
+    font-size: 4rem;
+    line-height: 1.2;
+  }
+
+  .header__text-container h3 {
+    font-size: 1.8rem;
+    margin-bottom: 3rem;
+  }
+
+  .section {
+    padding: 8rem 2rem;
+  }
+
+  .section__title {
+    max-width: 100%;
+    margin: 0 auto 6rem auto;
+  }
+
+  .section__header {
+    font-size: 3rem;
+  }
+
+  .features {
+    grid-template-columns: 1fr;
+    margin: 0 2rem;
+    gap: 4rem;
+  }
+
+  .features__feature {
+    width: 100%;
+    text-align: center;
+  }
+
+  .features__header {
+    font-size: 2.4rem;
+  }
+
+  .operations {
+    margin: 6rem 1rem 0 1rem;
+  }
+
+  .operations__tab-container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .operations__tab {
+    transform: none;
+    margin: 0;
+    width: 100%;
+    border-radius: 10px;
+  }
+
+  .operations__tab--active {
+    transform: none;
+  }
+
+  .operations__content {
+    padding: 2rem;
+  }
+
+  .operations__content--active {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .operations__icon {
+    justify-self: center;
+  }
+
+  .slider {
+    height: 40rem;
+  }
+
+  .slide {
+    height: 40rem;
+  }
+
+  .testimonial {
+    width: 95%;
+  }
+
+  .testimonial::before {
+    font-size: 15rem;
+    top: -4rem;
+    left: -4rem;
+  }
+
+  .testimonial__header {
+    font-size: 2rem;
+  }
+
+  .testimonial__text {
+    font-size: 1.6rem;
+  }
+
+  .testimonial__author {
+    grid-template-columns: 5rem 1fr;
+    column-gap: 1.5rem;
+  }
+
+  .testimonial__photo {
+    width: 5rem;
+  }
+
+  .testimonial__name {
+    font-size: 1.6rem;
+  }
+
+  .testimonial__location {
+    font-size: 1.4rem;
+  }
+
+  .button10 {
+    width: auto;
+    padding: 15px 30px;
+    font-size: 16px;
+  }
+
+  .footer__nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .footer__item {
+    margin: 0;
+  }
+
+  .bodysbar {
+    display: none;
+  }
+
+  .chat-container {
+    width: 280px;
+    height: 350px;
+    right: -10px;
+  }
+}
+
+/* Mobile portrait */
+@media (max-width: 480px) {
+  html {
+    font-size: 50%;
+  }
+
+  .header__text-container h1 {
+    font-size: 3.5rem;
+  }
+
+  .header__text-container h3 {
+    font-size: 1.6rem;
+  }
+
+  .section__header {
+    font-size: 2.5rem;
+  }
+
+  .section__description {
+    font-size: 1.6rem;
+  }
+
+  .features__header {
+    font-size: 2rem;
+  }
+
+  .operations__header {
+    font-size: 2rem;
+  }
+
+  .testimonial__header {
+    font-size: 1.8rem;
+  }
+
+  .testimonial::before {
+    font-size: 12rem;
+    top: -3rem;
+    left: -3rem;
+  }
+
+  .slider {
+    height: 35rem;
+  }
+
+  .slide {
+    height: 35rem;
+  }
+
+  .slider__btn {
+    height: 4rem;
+    width: 4rem;
+    font-size: 2.5rem;
+  }
+
+  .dots__dot {
+    height: 0.8rem;
+    width: 0.8rem;
+    margin-right: 1rem;
+  }
+
+  .chat-container {
+    width: 260px;
+    height: 320px;
+    right: -20px;
+  }
+
+  .chatbot-button {
+    width: 50px;
+    height: 50px;
+  }
+
+  .chatbot-button::before {
+    font-size: 20px;
+  }
+}
+
+/* Very small screens */
+@media (max-width: 360px) {
+  .section {
+    padding: 6rem 1rem;
+  }
+
+  .header__text-container h1 {
+    font-size: 3rem;
+  }
+
+  .header__text-container h3 {
+    font-size: 1.4rem;
+  }
+
+  .section__header {
+    font-size: 2.2rem;
+  }
+
+  .features {
+    margin: 0 1rem;
+  }
+
+  .operations {
+    margin: 4rem 0.5rem 0 0.5rem;
+  }
+
+  .testimonial {
+    width: 100%;
+  }
+
+  .testimonial__author {
+    margin-left: 1rem;
+  }
+
+  .chat-container {
+    width: 240px;
+    height: 300px;
+    right: -30px;
+  }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .nav__logo,
+  .nav__logo__text,
+  .footer__logo {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+
+/* Landscape orientation adjustments */
+@media (orientation: landscape) and (max-height: 500px) {
+  .header {
+    height: auto;
+    min-height: 100vh;
+    padding: 2rem 3rem;
+  }
+
+  .header__title {
+    align-content: start;
+    padding-top: 5rem;
+  }
+
+  .header__text-container h1 {
+    font-size: 3.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .header__text-container h3 {
+    font-size: 1.6rem;
+    margin-bottom: 2rem;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .mainbod {
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+  }
+
+  .nav {
+    background-color: rgba(26, 26, 26, 0.95);
+  }
+
+  .nav__link:link,
+  .nav__link:visited {
+    color: #e0e0e0;
+  }
+
+  .section {
+    border-top-color: #333;
+  }
+
+  .operations {
+    background-color: #2a2a2a;
+  }
+
+  .chat-container {
+    background-color: #2a2a2a;
+    color: #e0e0e0;
+  }
+
+  .chat-message.bot {
+    background-color: #3a3a3a;
+    color: #e0e0e0;
+  }
+
+  .chat-input input {
+    background-color: #3a3a3a;
+    color: #e0e0e0;
+    border-color: #555;
+  }
+
+  .navbar {
+    background-color: rgba(26, 26, 26, 0.95);
+  }
+
+  .navbar a {
+    color: #e0e0e0;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Print styles */
+@media print {
+  .nav,
+  .bodycb,
+  .bodysbar,
+  .btn-mobile-nav,
+  .slider__btn,
+  .dots {
+    display: none !important;
+  }
+
+  .mainbod {
+    background: white !important;
+    color: black !important;
+  }
+
+  .section {
+    page-break-inside: avoid;
+  }
+
+  .header__title {
+    page-break-after: always;
+  }
+}

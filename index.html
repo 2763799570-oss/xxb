@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" type="image/jpeg" href="img/icon.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="query.css">
+    <title data-i18n="home.meta.title">日本語学習サイト | ホーム</title>
+    <script defer src="js/userDataManager.js"></script>
+    <script defer src="js/notificationSystem.js"></script>
+    <script defer src="script.js"></script>
+    <script defer src="js/i18n.js"></script>
+</head>
+
+<body class="mainbod">
+    <header class="header">
+        <nav class="nav">
+            <img src="./img/111.jpg" alt="" data-i18n-alt="home.meta.logoAlt" class="nav__logo" id="logo">
+
+            <!-- 导航栏右侧控制区域 -->
+            <div class="nav-controls">
+                <!-- 语言切换器 -->
+                <div class="language-switcher">
+                    <button class="lang-btn active" data-lang="ja">
+                        <span class="flag">🇯🇵</span>
+                        <span class="lang-text">日</span>
+                    </button>
+                    <button class="lang-btn" data-lang="zh">
+                        <span class="flag">🇨🇳</span>
+                        <span class="lang-text">中</span>
+                    </button>
+                    <button class="lang-btn" data-lang="en">
+                        <span class="flag">🇺🇸</span>
+                        <span class="lang-text">En</span>
+                    </button>
+                </div>
+
+                <!-- 背景音乐控制 -->
+                <div class="music-control">
+                    <button id="musicToggle" class="music-btn" title="背景音乐开关">
+                        <i class="fas fa-music"></i>
+                    </button>
+                    <audio id="backgroundMusic" loop preload="auto">
+                        <source src="./games/resource/lemon.MP3" type="audio/mpeg">
+                    </audio>
+                </div>
+            </div>
+
+            <ul class="nav__links">
+                <li class="nav__item">
+                    <a class="nav__link" href="#section--1" data-i18n="nav.home">ホーム</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="./about.html" data-i18n="nav.about">私たちについて</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="./quiz/quiz-main.html" data-i18n="nav.team">チーム紹介</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="./courses/index.html" data-i18n="nav.courses">コース</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="./games.html" data-i18n="nav.games">ゲーム</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="./quiz/quiz-system.html" data-i18n="nav.quiz">クイズ</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="./culture.html" data-i18n="nav.culture">日本文化</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__linkregister" style="text-decoration: none;" href="./login.html">
+                        <strong data-i18n="nav.register">登録</strong>
+                    </a>
+                </li>
+            </ul>
+            <button class="btn-mobile-nav">
+                <ion-icon class="icon-mobile-nav" name="menu-outline"></ion-icon>
+                <ion-icon class="icon-mobile-nav" name="close-outline"></ion-icon>
+            </button>
+        </nav>
+
+        <div class="header__title">
+            <div class="header__text-container">
+                <h1 data-i18n="home.title">
+                    日本語学習の世界へ<br>ようこそ！<br>文化と言語を一緒に学びましょう
+                </h1>
+                <h3 data-i18n="home.subtitle">
+                    日本語の美しさを発見し、日本の豊かな文化を探求する旅に出かけましょう。<br>
+                    初心者から上級者まで、あなたのレベルに合わせた学習コンテンツをご用意しています。
+                </h3>
+                <button class="btn--text btn--scroll-to" data-i18n="home.startLearning">
+                    探索する ↓
+                </button>
+            </div>
+            <div class="header__img-container">
+                <!-- 轮播图容器 -->
+                <div class="carousel-container">
+                    <div class="carousel">
+                        <div class="carousel-slide active">
+                            <img src="./img/333.jpg" alt="日语学习图片1" class="carousel-img">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="./img/轮播图/2.jpg" alt="日语学习图片2" class="carousel-img">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="./img/轮播图/3.jpg" alt="日语学习图片3" class="carousel-img">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="./img/轮播图/4.jpg" alt="日语学习图片4" class="carousel-img">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="./img/轮播图/5.jpg" alt="日语学习图片5" class="carousel-img">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="./img/轮播图/6.jpg" alt="日语学习图片6" class="carousel-img">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="./img/轮播图/7.jpg" alt="日语学习图片7" class="carousel-img">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="./img/轮播图/8.jpg" alt="日语学习图片8" class="carousel-img">
+                        </div>
+                    </div>
+
+                    <!-- 轮播图导航按钮 -->
+                    <button class="carousel-btn carousel-btn-prev" onclick="changeSlide(-1)">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="carousel-btn carousel-btn-next" onclick="changeSlide(1)">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+
+                    <!-- 轮播图指示器 -->
+                    <div class="carousel-indicators">
+                        <span class="indicator active" onclick="currentSlide(1)"></span>
+                        <span class="indicator" onclick="currentSlide(2)"></span>
+                        <span class="indicator" onclick="currentSlide(3)"></span>
+                        <span class="indicator" onclick="currentSlide(4)"></span>
+                        <span class="indicator" onclick="currentSlide(5)"></span>
+                        <span class="indicator" onclick="currentSlide(6)"></span>
+                        <span class="indicator" onclick="currentSlide(7)"></span>
+                        <span class="indicator" onclick="currentSlide(8)"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="section section--hidden" id="section--1">
+        <div class="section__title">
+            <h2 class="section__description" data-i18n="home.section.resources">学習リソース</h2>
+            <h3 class="section__header" data-i18n="home.section.beginnerCourse"><strong>初心者コース:</strong> 始めましょう！</h3>
+        </div>
+        <div class="features">
+            <img src="./img/第一周图片资源/补充照片/2.jpg" data-src="./img/第一周图片资源/补充照片/2.jpg" alt="" data-i18n-alt="home.video.hiraganaAlt" class="features__img lazy-img">
+            
+            <div class="features__feature">
+                <h5 class="features__header" data-i18n="home.features.hiragana.title">ひらがな・カタカナ</h5>
+                <p data-i18n="home.features.hiragana.description"><strong>基礎文字コース:</strong> 日本語の基本となるひらがなとカタカナを学びます。正しい書き順から発音まで、丁寧に指導します。日本語学習の第一歩を踏み出しましょう！</p>
+            </div>
+
+            <div class="features__feature">
+                <h5 class="features__header" data-i18n="home.features.kanji.title">漢字学習</h5>
+                <p data-i18n="home.features.kanji.description"><strong>漢字マスターコース:</strong> 日常生活でよく使われる漢字から学習を始めます。読み方、書き方、意味を体系的に学び、実用的な漢字力を身につけましょう。</p>
+            </div>
+            
+            <img src="./img/第一周图片资源/补充照片/3.jpg" data-src="./img/第一周图片资源/补充照片/3.jpg" alt="" data-i18n-alt="home.video.kanjiAlt" class="features__img lazy-img">
+
+            <img src="./img/第一周图片资源/补充照片/4.jpg" data-src="./img/第一周图片资源/补充照片/4.jpg" alt="" data-i18n-alt="home.video.conversationAlt" class="features__img lazy-img">
+
+            <div class="features__feature">
+                <h5 class="features__header" data-i18n="home.features.conversation.title">日常会話</h5>
+                <p data-i18n="home.features.conversation.description"><strong>実践会話コース:</strong> 日常生活で使える実用的な日本語会話を学習します。挨拶から買い物、レストランでの注文まで、様々なシチュエーションに対応できる会話力を身につけます。</p>
+            </div>
+        </div>
+    </section>
+
+    
+
+            <div class="operations__content operations__content--2">
+                <h5 class="operations__header" data-i18n="home.quiz.kanjiTitle">
+                    漢字の知識を試してみませんか？
+                </h5>
+                <p data-i18n="home.quiz.kanjiDesc">
+                    <strong>漢字クイズ:</strong> 日常でよく使われる漢字の読み方や意味をテストします。
+                    初級から上級まで、あなたのレベルに合わせた問題で漢字力を向上させましょう。
+                </p>
+            </div>
+
+            <div class="operations__content operations__content--3">
+                <h5 class="operations__header" data-i18n="home.quiz.vocabularyTitle">
+                    語彙力を向上させたいですか？
+                </h5>
+                <p data-i18n="home.quiz.vocabularyDesc">
+                    <strong>語彙クイズ:</strong> 日本語の豊富な語彙を楽しく学習できるクイズです。
+                    日常会話から専門用語まで、幅広い語彙力を身につけて、より自然な日本語を話せるようになりましょう。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section--hidden" id="section--3">
+        <div class="section__title section__title--testimonials">
+            <h2 class="section__description" data-i18n="home.testimonials.title">まだ迷っていますか？</h2>
+            <h3 class="section__header" data-i18n="home.testimonials.subtitle">
+                なぜ他のサイトを選ぶのですか？<strong>ここで</strong>すべてが見つかります！
+            </h3>
+        </div>
+
+        <div class="slider">
+            <div class="slide slide--1">
+                <div class="testimonial">
+                    <h5 class="testimonial__header" data-i18n="home.testimonials.member1.header">一緒に勉強しましょう！</h5>
+                    <blockquote class="testimonial__text" data-i18n="home.testimonials.member1.text">
+                        大家好，我是刘妍，目前就读于24级人工智能-工商管理专业，来自安徽，非常高兴能和其他几位同学一起参与本次日语辅助性网站的开发，
+                        希望我们的热情和专业素养能够帮助你开启一段神奇的日语学习之旅。让我们一起好好学习吧！一緒に勉強しましょう！
+                    </blockquote>
+                    <address class="testimonial__author">
+                        <img src="img/member-liu.jpg" alt="" data-i18n-alt="home.testimonials.member1.photoAlt" class="testimonial__photo">
+                        <h6 class="testimonial__name" data-i18n="home.testimonials.member1.name"><strong>组长/程序员/技术总监</strong><br>刘妍<br></h6>
+                        <p class="testimonial__location" data-i18n="home.testimonials.member1.location">Team Leader</p>
+                    </address>
+                </div>
+            </div>
+
+            <div class="slide slide--2">
+                <div class="testimonial">
+                    <h5 class="testimonial__header" data-i18n="home.testimonials.member2.header">
+                        学習は人生を伴う事です
+                    </h5>
+                    <blockquote class="testimonial__text" data-i18n="home.testimonials.member2.text">
+                        大家好！我是本次日语学习网站开发小组的成员，目前就读大二。能参与这次网站开发作业，我特别珍惜——
+                        不仅因为这是将课堂知识转化为实践的好机会，更希望在协作中学习前端开发、用户需求分析等实用技能，
+                        为日语学习资源的整合输出贡献力量。
+                    </blockquote>
+                    <address class="testimonial__author">
+                        <img src="img/member-wang.jpg" alt="" data-i18n-alt="home.testimonials.member2.photoAlt" class="testimonial__photo">
+                        <h6 class="testimonial__name" data-i18n="home.testimonials.member2.name"><strong>CIO/程序员/网站编辑测试</strong><br>王睿文</h6>
+                        <p class="testimonial__location" data-i18n="home.testimonials.member2.location">开发团队</p>
+                    </address>
+                </div>
+            </div>
+
+            <div class="slide slide--3">
+                <div class="testimonial">
+                    <h5 class="testimonial__header" data-i18n="home.testimonials.member3.header">
+                        共に頑張りましょう！<br>一起加油！
+                    </h5>
+                    <blockquote class="testimonial__text" data-i18n="home.testimonials.member3.text">
+                        吴宜洙，广西柳州人，现于北京理工大学2024级就读人工智能-工商管理专业。由于很喜欢日本动漫与文化，
+                        有过日语学习经历，现在也正在备考jlpt考试中。想从一个真正自学日语者的角度出发，
+                        发起这个辅助学习网站项目，以帮助后来者学习。
+                    </blockquote>
+                    <address class="testimonial__author">
+                        <img src="img/member-wu.jpg" alt="" data-i18n-alt="home.testimonials.member3.photoAlt" class="testimonial__photo">
+                        <h6 class="testimonial__name" data-i18n="home.testimonials.member3.name"><strong>项目经理/程序员</strong><br>吴宜洙</h6>
+                        <p class="testimonial__location" data-i18n="home.testimonials.member3.location">JLPT备考中</p>
+                    </address>
+                </div>
+            </div>
+
+            <div class="slide slide--4">
+                <div class="testimonial">
+                    <h5 class="testimonial__header" data-i18n="home.testimonials.member4.header">
+                        学習は人生を伴う事です
+                    </h5>
+                    <blockquote class="testimonial__text" data-i18n="home.testimonials.member4.text">
+                        我是康相晖，24级人工智能与工商管理双学位，我来自山海福建。
+                        我觉得学习应该是伴随一个人终生的事情，人通过学习才能让自己更加广博，不拘泥于片面，
+                        才能对这个社会有更深的了解和认知。所以我们小组选择了让一起学习吧为组名，
+                        希望大家一起参与到人生这场没有边际的学习！
+                    </blockquote>
+                    <address class="testimonial__author">
+                        <img src="img/member-kang.jpg" alt="" data-i18n-alt="home.testimonials.member4.photoAlt" class="testimonial__photo">
+                        <h6 class="testimonial__name" data-i18n="home.testimonials.member4.name"><strong>策划/技术总监/UI设计美工</strong><br>康相晖</h6>
+                        <p class="testimonial__location" data-i18n="home.testimonials.member4.location">终身学习者</p>
+                    </address>
+                </div>
+            </div>
+
+            <button class="slider__btn slider__btn--left">&larr;</button>
+            <button class="slider__btn slider__btn--right">&rarr;</button>
+            <div class="dots"></div>
+        </div>
+    </section>
+
+    <section class="section section--hidden section--sign-up">
+        <div class="section__title">
+            <h3 class="section__header" data-i18n="home.quote.text">
+                「学ぶ意志がなければ、誰も助けることはできない。学ぶ決意があれば、誰も止めることはできない。」- ジグ・ジグラー
+            </h3>
+        </div>
+        <button class="button10">
+            <a class="abutton10" style="text-decoration: none;" href="./courses/index.html" data-i18n="home.cta.startLearning">学習を始める</a>
+        </button>
+    </section>
+
+    <footer class="footer">
+        <ul class="footer__nav">
+            <li class="footer__item">
+                <a class="footer__link" href="./index.html" data-i18n="nav.home">ホーム</a>
+            </li>
+            <li class="footer__item">
+                <a class="footer__link" href="./about.html" data-i18n="nav.about">私たちについて</a>
+            </li>
+            <li class="footer__item">
+                <a class="footer__link" href="./quiz/quiz-main.html" data-i18n="nav.team">チーム紹介</a>
+            </li>
+            <li class="footer__item">
+                <a class="footer__link" href="./courses/index.html" data-i18n="nav.courses">コース</a>
+            </li>
+            <li class="footer__item">
+                <a class="footer__link" href="./games.html" data-i18n="nav.games">ゲーム</a>
+            </li>
+            <li class="footer__item">
+                <a class="footer__link" href="./quiz/quiz-system.html" data-i18n="nav.quiz">クイズ</a>
+            </li>
+            <li class="footer__item">
+                <a class="footer__link" href="./culture.html" data-i18n="nav.culture">日本文化</a>
+            </li>
+        </ul>
+        <img src="img/icon.png" alt="" data-i18n-alt="home.footer.logoAlt" class="footer__logo">
+        <p class="footer__copyright">
+            &copy; <span data-i18n="home.footer.copyright">著作権</span>
+            <a class="footer__link twitter-link" target="_blank" href="https://" data-i18n="home.footer.siteName">
+                日本語学習サイト
+            </a><br>
+        </p>
+    </footer>
+
+    <!-- チャットボット -->
+    <div class="bodycb">
+        <div class="chatbot-button-container">
+            <div class="chatbot-button" id="chatbotButton"></div>
+        </div>
+        <div class="chat-container" id="chatContainer">
+            <div class="chat-log" id="chatLog">
+                <div class="chat-message bot" data-i18n="home.chatbot.greeting1">こんにちは！</div>
+                <div class="chat-message bot" data-i18n="home.chatbot.greeting2">何かお手伝いできることはありますか？</div>
+            </div>
+            <div class="chat-input">
+                <input type="text" id="userInput" placeholder="" data-i18n-placeholder="home.chatbot.placeholder">
+                <img src="./img/send.png" alt="" data-i18n-alt="home.chatbot.sendAlt" id="sendButton">
+            </div>
+        </div>
+    </div>
+
+    <!-- サイドバー -->
+    <div class="bodysbar">
+        <div class="navbar active" id="navbar">
+            <ul>
+                <br><br>
+                <li><a href="#" class="nav-link active"><i class="fas fa-home"></i><span data-i18n="nav.home">ホーム</span></a></li>
+                <li><a href="./about.html"><i class="fas fa-info-circle"></i><span data-i18n="nav.about">私たちについて</span></a></li>
+                <li><a href="./quiz/quiz-main.html"><i class="fas fa-users"></i><span data-i18n="nav.team">チーム紹介</span></a></li>
+                <li><a href="./courses/index.html"><i class="fas fa-book"></i><span data-i18n="nav.courses">コース</span></a></li>
+                <li><a href="./games.html"><i class="fas fa-gamepad"></i><span data-i18n="nav.games">ゲーム</span></a></li>
+                <li><a href="./culture.html"><i class="fas fa-torii-gate"></i><span data-i18n="nav.culture">日本文化</span></a></li>
+                <li><a href="./quiz/quiz-system.html"><i class="fas fa-laptop-code"></i><span data-i18n="nav.quiz">クイズ</span></a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 轮播图JavaScript -->
+    <script>
+        let currentSlideIndex = 0;
+        let slides, indicators, totalSlides;
+        let autoSlideInterval;
+
+        // 初始化轮播图
+        function initCarousel() {
+            slides = document.querySelectorAll('.carousel-slide');
+            indicators = document.querySelectorAll('.indicator');
+            totalSlides = slides.length;
+
+            if (totalSlides > 0) {
+                showSlide(0);
+                // 启动自动轮播
+                autoSlideInterval = setInterval(autoSlide, 5000);
+            }
+        }
+
+        // 显示指定的幻灯片
+        function showSlide(index) {
+            if (!slides || !indicators) return;
+
+            // 隐藏所有幻灯片
+            slides.forEach(slide => slide.classList.remove('active'));
+            indicators.forEach(indicator => indicator.classList.remove('active'));
+
+            // 显示当前幻灯片
+            if (slides[index] && indicators[index]) {
+                slides[index].classList.add('active');
+                indicators[index].classList.add('active');
+            }
+        }
+
+        // 切换到下一张或上一张幻灯片
+        function changeSlide(direction) {
+            currentSlideIndex += direction;
+
+            // 循环处理
+            if (currentSlideIndex >= totalSlides) {
+                currentSlideIndex = 0;
+            } else if (currentSlideIndex < 0) {
+                currentSlideIndex = totalSlides - 1;
+            }
+
+            showSlide(currentSlideIndex);
+        }
+
+        // 直接跳转到指定幻灯片
+        function currentSlide(index) {
+            currentSlideIndex = index - 1;
+            showSlide(currentSlideIndex);
+        }
+
+        // 自动轮播
+        function autoSlide() {
+            changeSlide(1);
+        }
+
+        // 初始化背景音乐控制
+        function initBackgroundMusic() {
+            const musicToggle = document.getElementById('musicToggle');
+            const backgroundMusic = document.getElementById('backgroundMusic');
+            let isPlaying = false;
+
+            if (!musicToggle || !backgroundMusic) return;
+
+            // 设置背景音乐音量
+            backgroundMusic.volume = 0.3;
+
+            // 音乐控制按钮点击事件
+            musicToggle.addEventListener('click', function() {
+                if (isPlaying) {
+                    backgroundMusic.pause();
+                    musicToggle.innerHTML = '<i class="fas fa-music"></i>';
+                    musicToggle.classList.remove('playing');
+                    isPlaying = false;
+                } else {
+                    backgroundMusic.play().then(() => {
+                        musicToggle.innerHTML = '<i class="fas fa-pause"></i>';
+                        musicToggle.classList.add('playing');
+                        isPlaying = true;
+                    }).catch(e => {
+                        console.log('背景音乐播放失败:', e);
+                    });
+                }
+            });
+
+            // 自动播放（需要用户交互后才能播放）
+            document.addEventListener('click', function autoPlay() {
+                if (!isPlaying) {
+                    backgroundMusic.play().then(() => {
+                        musicToggle.innerHTML = '<i class="fas fa-pause"></i>';
+                        musicToggle.classList.add('playing');
+                        isPlaying = true;
+                    }).catch(e => {
+                        console.log('背景音乐自动播放失败:', e);
+                    });
+                }
+                document.removeEventListener('click', autoPlay);
+            }, { once: true });
+        }
+
+        // 页面加载完成后初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM加载完成，初始化轮播图和背景音乐...');
+            // 延迟一点确保所有元素都加载完成
+            setTimeout(() => {
+                initCarousel();
+                initBackgroundMusic();
+            }, 100);
+        });
+    </script>
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

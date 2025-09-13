@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" type="image/png" href="img/icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="query.css">
+    <title data-i18n="about.meta.title">私たちについて | 日本語学習サイト</title>
+    <script defer src="js/userDataManager.js"></script>
+    <script defer src="js/notificationSystem.js"></script>
+    <script defer src="script.js"></script>
+    <script defer src="js/i18n.js"></script>
+</head>
+
+<body class="mainbod">
+    <header class="header">
+        <nav class="nav">
+            <img src="img/111.jpg" alt="" data-i18n-alt="home.meta.logoAlt" class="nav__logo" id="logo">
+
+            <!-- 语言切换器 -->
+            <div class="language-switcher">
+                <button class="lang-btn active" data-lang="ja">
+                    <span class="flag">🇯🇵</span>
+                    <span class="lang-text">日</span>
+                </button>
+                <button class="lang-btn" data-lang="zh">
+                    <span class="flag">🇨🇳</span>
+                    <span class="lang-text">中</span>
+                </button>
+                <button class="lang-btn" data-lang="en">
+                    <span class="flag">🇺🇸</span>
+                    <span class="lang-text">En</span>
+                </button>
+            </div>
+
+            <ul class="nav__links">
+                <li class="nav__item">
+                    <a class="nav__link" href="./index.html" data-i18n="nav.home">ホーム</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="#section--1" data-i18n="nav.about">私たちについて</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="./quiz/quiz-main.html" data-i18n="nav.team">チーム紹介</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="./courses/index.html" data-i18n="nav.courses">コース</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="./games.html" data-i18n="nav.games">ゲーム</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="./quiz/quiz-system.html" data-i18n="nav.quiz">クイズ</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="./culture.html" data-i18n="nav.culture">日本文化</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__linkregister" style="text-decoration: none;" href="./login.html">
+                        <strong data-i18n="nav.register">登録</strong>
+                    </a>
+                </li>
+            </ul>
+            <button class="btn-mobile-nav">
+                <ion-icon class="icon-mobile-nav" name="menu-outline"></ion-icon>
+                <ion-icon class="icon-mobile-nav" name="close-outline"></ion-icon>
+            </button>
+        </nav>
+
+        <div class="header__title">
+            <div class="header__text-container">
+                <h1 data-i18n="about.title">私たちについて</h1>
+                <h3 data-i18n="about.subtitle">日本語学習の新しい体験を提供する<br>革新的な教育プラットフォーム</h3>
+                <button class="btn--text btn--scroll-to" data-i18n="about.learnMore">
+                    詳しく見る ↓
+                </button>
+            </div>
+            <div class="header__img-container">
+                <img src="img/555.jpg" class="header__img" alt="" data-i18n-alt="about.hero.imageAlt">
+            </div>
+        </div>
+    </header>
+
+    <section class="section" id="section--1">
+        <div class="section__title">
+            <h2 class="section__description" data-i18n="about.mission.title">私たちのミッション</h2>
+            <h3 class="section__header" data-i18n="about.mission.subtitle">日本語学習を<strong>もっと楽しく、もっと効果的に</strong></h3>
+        </div>
+        
+        <div class="features">
+            <img src="img/mission-1.png" data-src="img/mission-1.png" alt="" data-i18n-alt="about.mission.image1Alt" class="features__img lazy-img">
+            
+            <div class="features__feature">
+                <div class="features__icon">
+                    <i class="fas fa-heart" style="color: var(--japanese-red); font-size: 2.5rem;"></i>
+                </div>
+                <h5 class="features__header" data-i18n="about.mission.feature1.title">学習への情熱</h5>
+                <p data-i18n="about.mission.feature1.description">私たちは日本語学習に対する深い情熱を持っています。言語を学ぶことは単なる勉強ではなく、新しい世界への扉を開く冒険だと信じています。</p>
+            </div>
+ 
+            <div class="features__feature">
+                <div class="features__icon">
+                    <i class="fas fa-users" style="color: var(--japanese-red); font-size: 2.5rem;"></i>
+                </div>
+                <h5 class="features__header" data-i18n="about.mission.feature2.title">コミュニティ重視</h5>
+                <p data-i18n="about.mission.feature2.description">学習者同士が支え合い、共に成長できるコミュニティを大切にしています。一人ではなく、みんなで一緒に日本語を学びましょう。</p>
+            </div>
+            <img src="img/666.jpg" data-src="img/mission-2.png" alt="" data-i18n-alt="about.mission.image2Alt" class="features__img lazy-img">
+
+           
+
+            <img src="img/第一周图片资源/补充照片/1.jpg" data-src="img/第一周图片资源/补充照片/1.jpg" alt="" data-i18n-alt="about.mission.image3Alt" class="features__img lazy-img">
+
+            <div class="features__feature">
+                <div class="features__icon">
+                    <i class="fas fa-lightbulb" style="color: var(--japanese-red); font-size: 2.5rem;"></i>
+                </div>
+                <h5 class="features__header" data-i18n="about.mission.feature3.title">革新的な方法</h5>
+                <p data-i18n="about.mission.feature3.description">最新の教育技術と伝統的な学習方法を組み合わせ、効果的で楽しい学習体験を提供します。ゲーミフィケーションやAIを活用した個別指導も取り入れています。</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="section--2">
+        <div class="section__title">
+            <h2 class="section__description" data-i18n="about.team.title">The Team</h2>
+            <h3 class="section__header" data-i18n="about.team.subtitle"><strong>一緒に勉強しましょう</strong> - 開発チーム</h3>
+            <p style="text-align: center; font-size: 1.6rem; color: #666; margin-bottom: 4rem;" data-i18n="about.team.description">
+                很高兴向你介绍本次我们开发日语辅助性学习网站的团队。我们的团队由四名同学组成，虽然四个人有着不同的兴趣爱好，
+                但是都有着饱满的热情和独一无二的专业素养。希望在我们和这个网站的陪伴下你可以有所收获，满载而归！
+            </p>
+        </div>
+
+        <div class="team-grid">
+            <div class="team-member">
+                <img src="img/member-liu.jpg" alt="" data-i18n-alt="about.team.member1.photoAlt" class="team-member__photo">
+                <div class="team-member__info">
+                    <h4 class="team-member__name" data-i18n="about.team.member1.name">刘妍</h4>
+                    <p class="team-member__role" data-i18n="about.team.member1.role">组长/程序员/技术总监</p>
+                    <p class="team-member__description" data-i18n="about.team.member1.description">
+                        大家好，我是刘妍，目前就读于24级人工智能-工商管理专业，来自安徽，非常高兴能和其他几位同学一起参与本次日语辅助性网站的开发，希望我们的热情和专业素养能够帮助你开启一段神奇的日语学习之旅。
+                        <br><br>
+                        在日常生活中，我喜欢旅行和打游戏，愿意读万卷书也愿意行万里路，在不同的事情中收获不一样的风景，不断的学习和提升自己，希望使用这个网站的你同样能够从中有所收获，让我们一起好好学习吧！一緒に勉強しましょう！
+                    </p>
+                </div>
+            </div>
+
+            <div class="team-member">
+                <img src="img/member-wang.jpg" alt="" data-i18n-alt="about.team.member2.photoAlt" class="team-member__photo">
+                <div class="team-member__info">
+                    <h4 class="team-member__name" data-i18n="about.team.member2.name">王睿文</h4>
+                    <p class="team-member__role" data-i18n="about.team.member2.role">CIO/程序员/网站编辑测试</p>
+                    <p class="team-member__description" data-i18n="about.team.member2.description">
+                        大家好！我是本次日语学习网站开发小组的成员，目前就读大二。能参与这次网站开发作业，我特别珍惜——不仅因为这是将课堂知识转化为实践的好机会，更希望在协作中学习前端开发、用户需求分析等实用技能，为日语学习资源的整合输出贡献力量。
+                        <br><br>
+                        平时的我，既喜欢走进剧场，在话剧的台词与表演里感受不同故事的温度；也爱利用课余时间探索城市里不知名的角落，在小众街巷或郊野风景中放松思绪。这次能把对新鲜事物的探索欲融入项目，我会全力配合团队，和大家一起打造出实用又贴心的日语学习平台！
+                    </p>
+                </div>
+            </div>
+
+            <div class="team-member">
+                <img src="img/member-wu.jpg" alt="" data-i18n-alt="about.team.member3.photoAlt" class="team-member__photo">
+                <div class="team-member__info">
+                    <h4 class="team-member__name" data-i18n="about.team.member3.name">吴宜洙</h4>
+                    <p class="team-member__role" data-i18n="about.team.member3.role">项目经理/程序员/网页资源填充与剪辑</p>
+                    <p class="team-member__description" data-i18n="about.team.member3.description">
+                        吴宜洙，生日2006年3月9日，广西柳州人，现于北京理工大学2024级就读人工智能-工商管理专业。平日兴趣爱好广泛，喜欢看番看漫画追kpop以及跳舞，在组内担任项目总经理，程序员以及视频剪辑。
+                        <br><br>
+                        由于很喜欢日本动漫与文化，有过日语学习经历，现在也正在备考jlpt考试中。想从一个真正自学日语者的角度出发，发起这个辅助学习网站项目，以帮助后来者学习。
+                    </p>
+                </div>
+            </div>
+
+            <div class="team-member">
+                <img src="img/member-kang.jpg" alt="" data-i18n-alt="about.team.member4.photoAlt" class="team-member__photo">
+                <div class="team-member__info">
+                    <h4 class="team-member__name" data-i18n="about.team.member4.name">康相晖</h4>
+                    <p class="team-member__role" data-i18n="about.team.member4.role">策划/技术总监/UI设计美工</p>
+                    <p class="team-member__description" data-i18n="about.team.member4.description">
+                        我是康相晖，24级人工智能与工商管理双学位，我来自山海福建，平常爱好读书（比较喜欢偏历史政治类或者小说）、听音乐和打羽毛球，漫无目的的散步。
+                        <br><br>
+                        是一个有点e又有点i的人，喜欢思考各种人生问题和奇奇怪怪的事情，我觉得学习应该是伴随一个人终生的事情，人通过学习才能让自己更加广博，不拘泥于片面，才能对这个社会有更深的了解和认知。所以我们小组选择了让一起学习吧为组名，希望大家一起参与到人生这场没有边际的学习！
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="section--3">
+        <div class="section__title">
+            <h2 class="section__description" data-i18n="about.values.title">私たちの価値観</h2>
+            <h3 class="section__header" data-i18n="about.values.subtitle">学習者第一の<strong>教育理念</strong></h3>
+        </div>
+
+        <div class="values-container">
+            <div class="value-item">
+                <div class="value-icon">
+                    <i class="fas fa-star" style="color: var(--japanese-gold); font-size: 3rem;"></i>
+                </div>
+                <h4 data-i18n="about.values.value1.title">品質へのこだわり</h4>
+                <p data-i18n="about.values.value1.description">すべての教材とコンテンツは、日本語教育の専門家によって厳選・監修されています。正確で実用的な日本語を学べることをお約束します。</p>
+            </div>
+
+            <div class="value-item">
+                <div class="value-icon">
+                    <i class="fas fa-globe" style="color: var(--color-tertiary); font-size: 3rem;"></i>
+                </div>
+                <h4 data-i18n="about.values.value2.title">多様性の尊重</h4>
+                <p data-i18n="about.values.value2.description">世界中の様々な背景を持つ学習者を歓迎します。それぞれの文化や学習スタイルを尊重し、個人に合わせた学習体験を提供します。</p>
+            </div>
+
+            <div class="value-item">
+                <div class="value-icon">
+                    <i class="fas fa-rocket" style="color: var(--color-secondary); font-size: 3rem;"></i>
+                </div>
+                <h4 data-i18n="about.values.value3.title">継続的な改善</h4>
+                <p data-i18n="about.values.value3.description">学習者のフィードバックを大切にし、常にサービスの向上に努めています。新しい技術や教育方法を積極的に取り入れ、より良い学習環境を提供します。</p>
+            </div>
+
+            <div class="value-item">
+                <div class="value-icon">
+                    <i class="fas fa-handshake" style="color: var(--japanese-red); font-size: 3rem;"></i>
+                </div>
+                <h4 data-i18n="about.values.value4.title">サポート重視</h4>
+                <p data-i18n="about.values.value4.description">学習の途中で困ったことがあれば、いつでもサポートチームがお手伝いします。一人ひとりの学習目標達成まで、責任を持ってサポートします。</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section--sign-up">
+        <div class="section__title">
+            <h3 class="section__header" data-i18n="about.cta.title">
+                私たちと一緒に日本語学習の旅を始めませんか？
+            </h3>
+        </div>
+        <button class="button10">
+            <a class="abutton10" style="text-decoration: none;" href="./courses/index.html" data-i18n="about.cta.button">コースを見る</a>
+        </button>
+    </section>
+
+    <footer class="footer">
+        <ul class="footer__nav">
+            <li class="footer__item">
+                <a class="footer__link" href="./about.html" data-i18n="nav.about">私たちについて</a>
+            </li>
+            <li class="footer__item">
+                <a class="footer__link" href="./index.html" data-i18n="nav.home">ホーム</a>
+            </li>
+            <li class="footer__item">
+                <a class="footer__link" href="./courses/index.html" data-i18n="nav.courses">コース</a>
+            </li>
+
+            <li class="footer__item">
+                <a class="footer__link" href="./quiz/quiz-main.html" data-i18n="nav.quiz">クイズ</a>
+            </li>
+            <li class="footer__item">
+                <a class="footer__link" href="./games.html" data-i18n="nav.games">ゲーム</a>
+            </li>
+        </ul>
+        <img src="img/icon.png" alt="" data-i18n-alt="home.footer.logoAlt" class="footer__logo">
+        <p class="footer__copyright">
+            &copy; <span data-i18n="home.footer.copyright">著作権</span>
+            <a class="footer__link twitter-link" target="_blank" href="https://" data-i18n="home.footer.siteName">
+                日本語学習サイト
+            </a><br>
+        </p>
+    </footer>
+
+    <!-- チャットボット -->
+    <div class="bodycb">
+        <div class="chatbot-button-container">
+            <div class="chatbot-button" id="chatbotButton"></div>
+        </div>
+        <div class="chat-container" id="chatContainer">
+            <div class="chat-log" id="chatLog">
+                <div class="chat-message bot" data-i18n="home.chatbot.greeting1">こんにちは！</div>
+                <div class="chat-message bot" data-i18n="about.chatbot.greeting2">私たちについて何かご質問はありますか？</div>
+            </div>
+            <div class="chat-input">
+                <input type="text" id="userInput" placeholder="" data-i18n-placeholder="home.chatbot.placeholder">
+                <img src="./img/send.png" alt="" data-i18n-alt="home.chatbot.sendAlt" id="sendButton">
+            </div>
+        </div>
+    </div>
+
+    <!-- サイドバー -->
+    <div class="bodysbar">
+        <div class="navbar active" id="navbar">
+            <ul>
+                <br><br>
+                <li><a href="./index.html" class="nav-link"><i class="fas fa-home"></i><span data-i18n="nav.home">ホーム</span></a></li>
+                <li><a href="#" class="nav-link active"><i class="fas fa-info-circle"></i><span data-i18n="nav.about">私たちについて</span></a></li>
+                <li><a href="./quiz/quiz-main.html"><i class="fas fa-users"></i><span data-i18n="nav.team">チーム紹介</span></a></li>
+                <li><a href="./courses/index.html"><i class="fas fa-book"></i><span data-i18n="nav.courses">コース</span></a></li>
+                <li><a href="./games.html"><i class="fas fa-gamepad"></i><span data-i18n="nav.games">ゲーム</span></a></li>
+                <li><a href="./culture.html"><i class="fas fa-torii-gate"></i><span data-i18n="nav.culture">日本文化</span></a></li>
+                <li><a href="./quiz/quiz-system.html"><i class="fas fa-laptop-code"></i><span data-i18n="nav.quiz">クイズ</span></a></li>
+            </ul>
+        </div>
+    </div>
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

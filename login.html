@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" type="image/png" href="img/icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="query.css">
+    <title data-i18n="login.meta.title">ログイン・登録 | 日本語学習サイト</title>
+    <script defer src="js/i18n.js"></script>
+    <script defer src="js/userDataManager.js"></script>
+    <script defer src="js/notificationSystem.js"></script>
+    <style>
+        /* 语言切换器样式 */
+        .language-switcher {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .lang-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            padding: 0.5rem 0.8rem;
+            border: 2px solid transparent;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        .lang-btn:hover {
+            background: rgba(255, 255, 255, 1);
+            transform: translateY(-2px);
+        }
+
+        .lang-btn.active {
+            background: var(--japanese-red);
+            color: white;
+            border-color: var(--japanese-red);
+        }
+
+        .lang-btn .flag {
+            font-size: 1.4rem;
+        }
+
+        .lang-btn .lang-text {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+    </style>
+    <style>
+        .login-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 2rem;
+        }
+
+        .login-box {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            max-width: 900px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 600px;
+        }
+
+        .login-form-section {
+            padding: 4rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .login-image-section {
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            color: white;
+            text-align: center;
+            padding: 4rem;
+        }
+
+        .login-image-section h2 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+
+        .login-image-section p {
+            font-size: 1.6rem;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        .form-title {
+            font-size: 2.8rem;
+            font-weight: 600;
+            color: var(--japanese-black);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .form-subtitle {
+            font-size: 1.4rem;
+            color: #666;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: var(--japanese-black);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 1.2rem 1.5rem;
+            border: 2px solid #e1e5e9;
+            border-radius: 10px;
+            font-size: 1.4rem;
+            font-family: inherit;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--japanese-red);
+            box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1);
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 1.5rem;
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.6rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-bottom: 2rem;
+        }
+
+        .login-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(231, 76, 60, 0.3);
+        }
+
+        .form-links {
+            text-align: center;
+        }
+
+        .form-links a {
+            color: var(--japanese-red);
+            text-decoration: none;
+            font-size: 1.4rem;
+            transition: all 0.3s;
+        }
+
+        .form-links a:hover {
+            text-decoration: underline;
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            margin: 2rem 0;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: #e1e5e9;
+        }
+
+        .divider span {
+            padding: 0 1rem;
+            color: #666;
+            font-size: 1.3rem;
+        }
+
+        .social-login {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-btn {
+            flex: 1;
+            padding: 1.2rem;
+            border: 2px solid #e1e5e9;
+            border-radius: 10px;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            font-size: 1.4rem;
+        }
+
+        .social-btn:hover {
+            border-color: var(--japanese-red);
+            transform: translateY(-2px);
+        }
+
+        .back-home {
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+            color: white;
+            text-decoration: none;
+            font-size: 1.6rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s;
+        }
+
+        .back-home:hover {
+            transform: translateX(-5px);
+        }
+
+        @media (max-width: 768px) {
+            .login-box {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+            }
+
+            .login-image-section {
+                display: none;
+            }
+
+            .login-form-section {
+                padding: 3rem 2rem;
+            }
+
+            .form-title {
+                font-size: 2.4rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-container">
+        <!-- 语言切换器 -->
+        <div class="language-switcher" style="position: absolute; top: 2rem; right: 2rem; z-index: 1000;">
+            <button class="lang-btn active" data-lang="ja">
+                <span class="flag">🇯🇵</span>
+                <span class="lang-text">日</span>
+            </button>
+            <button class="lang-btn" data-lang="zh">
+                <span class="flag">🇨🇳</span>
+                <span class="lang-text">中</span>
+            </button>
+            <button class="lang-btn" data-lang="en">
+                <span class="flag">🇺🇸</span>
+                <span class="lang-text">En</span>
+            </button>
+        </div>
+
+        <a href="./index.html" class="back-home">
+            <i class="fas fa-arrow-left"></i>
+            <span data-i18n="login.backHome">ホームに戻る</span>
+        </a>
+        
+        <div class="login-box">
+            <div class="login-form-section">
+                <h1 class="form-title" data-i18n="login.loginTab">ログイン</h1>
+                <p class="form-subtitle" data-i18n="login.subtitle">アカウントにログインして学習を続けましょう</p>
+
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="loginEmail" data-i18n="login.email">メールアドレス</label>
+                        <input type="email" id="loginEmail" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="loginPassword" data-i18n="login.password">パスワード</label>
+                        <input type="password" id="loginPassword" name="password" required>
+                    </div>
+
+                    <button type="submit" class="login-btn" data-i18n="login.loginBtn">ログイン</button>
+                </form>
+                
+                <div class="divider">
+                    <span data-i18n="login.or">または</span>
+                </div>
+
+                <div class="social-login">
+                    <button class="social-btn">
+                        <i class="fab fa-google"></i>
+                        <span data-i18n="login.googleLogin">Google</span>
+                    </button>
+                    <button class="social-btn">
+                        <i class="fab fa-facebook"></i>
+                        <span data-i18n="login.facebookLogin">Facebook</span>
+                    </button>
+                </div>
+                
+                <div class="form-links">
+                    <p><span data-i18n="login.noAccount">アカウントをお持ちでない方は</span> <a href="#" onclick="showSignup()" data-i18n="login.signupLink">新規登録</a></p>
+                    <p><a href="#" data-i18n="login.forgotPassword">パスワードを忘れた方はこちら</a></p>
+                </div>
+            </div>
+            
+            <div class="login-image-section">
+                <h2 data-i18n="login.welcomeTitle">日本語学習の旅を始めましょう！</h2>
+                <p data-i18n="login.welcomeText">
+                    私たちのプラットフォームで、楽しく効果的に日本語を学習できます。
+                    ひらがなから上級レベルまで、あなたのペースで学習を進めましょう。
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showSignup() {
+            const formSection = document.querySelector('.login-form-section');
+            formSection.innerHTML = `
+                <h1 class="form-title" data-i18n="login.signupTab">新規登録</h1>
+                <p class="form-subtitle" data-i18n="login.signupSubtitle">新しいアカウントを作成して学習を始めましょう</p>
+
+                <form id="signupForm">
+                    <div class="form-group">
+                        <label for="signupUsername" data-i18n="login.fullName">お名前</label>
+                        <input type="text" id="signupUsername" name="fullName" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="signupEmail" data-i18n="login.email">メールアドレス</label>
+                        <input type="email" id="signupEmail" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="signupPassword" data-i18n="login.password">パスワード</label>
+                        <input type="password" id="signupPassword" name="password" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="signupConfirmPassword" data-i18n="login.confirmPassword">パスワード確認</label>
+                        <input type="password" id="signupConfirmPassword" name="confirmPassword" required>
+                    </div>
+
+                    <button type="submit" class="login-btn" data-i18n="login.signupBtn">新規登録</button>
+                </form>
+
+                <div class="divider">
+                    <span data-i18n="login.or">または</span>
+                </div>
+
+                <div class="social-login">
+                    <button class="social-btn">
+                        <i class="fab fa-google"></i>
+                        <span data-i18n="login.googleLogin">Google</span>
+                    </button>
+                    <button class="social-btn">
+                        <i class="fab fa-facebook"></i>
+                        <span data-i18n="login.facebookLogin">Facebook</span>
+                    </button>
+                </div>
+
+                <div class="form-links">
+                    <p><span data-i18n="login.hasAccount">既にアカウントをお持ちの方は</span> <a href="#" onclick="showLogin()" data-i18n="login.loginLink">ログイン</a></p>
+                </div>
+            `;
+            // 重新应用翻译
+            if (window.i18n && window.i18n.updateLanguage) {
+                window.i18n.updateLanguage(window.i18n.currentLanguage);
+            }
+        }
+
+        function showLogin() {
+            location.reload();
+        }
+
+        // 页面加载完成后初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            // 初始化多语言
+            if (window.i18n) {
+                window.i18n.init();
+            }
+
+            // 检查用户数据管理系统是否已加载
+            setTimeout(() => {
+                if (!window.userDataManager) {
+                    console.error('用户数据管理系统未加载');
+                    if (window.showNotification) {
+                        window.showNotification('システムの読み込みに失敗しました。ページを再読み込みしてください。', 'error');
+                    }
+                } else {
+                    console.log('用户数据管理系统已成功加载');
+                }
+            }, 1000);
+        });
+
+        // Form submission handling
+        document.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            if (e.target.id === 'loginForm') {
+                // Handle login
+                const email = document.getElementById('loginEmail').value;
+                const password = document.getElementById('loginPassword').value;
+
+                try {
+                    // 检查用户数据管理系统是否已加载
+                    if (!window.userDataManager) {
+                        throw new Error('システムが読み込まれていません。ページを再読み込みしてください。');
+                    }
+
+                    // 使用用户数据管理系统进行登录
+                    const user = window.userDataManager.loginUser(email, password);
+
+                    const message = window.i18n ? window.i18n.getTranslation('login.loginDemo', window.i18n.currentLang) : 'ログインに成功しました！ホームページに移動します。';
+                    alert(message);
+                    window.location.href = './index.html';
+                } catch (error) {
+                    const errorMessage = window.i18n ? window.i18n.getTranslation('login.loginError', window.i18n.currentLang) : 'ユーザー名またはパスワードが間違っています。';
+                    alert(errorMessage || error.message);
+                }
+            } else if (e.target.id === 'signupForm') {
+                // Handle signup
+                const username = document.getElementById('signupUsername').value;
+                const email = document.getElementById('signupEmail').value;
+                const password = document.getElementById('signupPassword').value;
+                const confirmPassword = document.getElementById('signupConfirmPassword').value;
+
+                if (password !== confirmPassword) {
+                    const message = window.i18n ? window.i18n.getTranslation('login.passwordMismatch', window.i18n.currentLang) : 'パスワードが一致しません。';
+                    alert(message);
+                    return;
+                }
+
+                try {
+                    // 检查用户数据管理系统是否已加载
+                    if (!window.userDataManager) {
+                        throw new Error('システムが読み込まれていません。ページを再読み込みしてください。');
+                    }
+
+                    // 使用用户数据管理系统进行注册
+                    const user = window.userDataManager.registerUser(username, email, password);
+
+                    const message = window.i18n ? window.i18n.getTranslation('login.signupDemo', window.i18n.currentLang) : '新規登録に成功しました！ホームページに移动します。';
+                    alert(message);
+                    window.location.href = './index.html';
+                } catch (error) {
+                    const errorMessage = window.i18n ? window.i18n.getTranslation('login.signupError', window.i18n.currentLang) : '登録に失敗しました。';
+                    alert(errorMessage || error.message);
+                }
+            }
+        });
+    </script>
+</body>
+</html>

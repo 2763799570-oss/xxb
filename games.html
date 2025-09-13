@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" type="image/png" href="img/icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="query.css">
+    <title data-i18n="games.meta.title">ゲーム | 日本語学習サイト</title>
+    <script defer src="js/userDataManager.js"></script>
+    <script defer src="js/notificationSystem.js"></script>
+    <script defer src="script.js"></script>
+    <script defer src="js/i18n.js"></script>
+</head>
+
+<body class="mainbod">
+    <header class="header">
+        <nav class="nav">
+            <img src="img/111.jpg" alt="" data-i18n-alt="home.meta.logoAlt" class="nav__logo" id="logo">
+
+            <!-- 语言切换器 -->
+            <div class="language-switcher">
+                <button class="lang-btn active" data-lang="ja">
+                    <span class="flag">🇯🇵</span>
+                    <span class="lang-text">日</span>
+                </button>
+                <button class="lang-btn" data-lang="zh">
+                    <span class="flag">🇨🇳</span>
+                    <span class="lang-text">中</span>
+                </button>
+                <button class="lang-btn" data-lang="en">
+                    <span class="flag">🇺🇸</span>
+                    <span class="lang-text">En</span>
+                </button>
+            </div>
+
+            <ul class="nav__links">
+                <li class="nav__item">
+                    <a class="nav__link" href="./index.html" data-i18n="nav.home">ホーム</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="./about.html" data-i18n="nav.about">私たちについて</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="./quiz/quiz-main.html" data-i18n="nav.team">チーム紹介</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="./courses/index.html" data-i18n="nav.courses">コース</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="#section--1" data-i18n="nav.games">ゲーム</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="./quiz/quiz-system.html" data-i18n="nav.quiz">クイズ</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="./culture.html" data-i18n="nav.culture">日本文化</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__linkregister" style="text-decoration: none;" href="./login.html">
+                        <strong data-i18n="nav.register">登録</strong>
+                    </a>
+                </li>
+            </ul>
+            <button class="btn-mobile-nav">
+                <ion-icon class="icon-mobile-nav" name="menu-outline"></ion-icon>
+                <ion-icon class="icon-mobile-nav" name="close-outline"></ion-icon>
+            </button>
+        </nav>
+
+        <div class="header__title">
+            <div class="header__text-container">
+                <h1 data-i18n="games.title">日本語学習ゲーム</h1>
+                <h3 data-i18n="games.subtitle">楽しく遊びながら<br>日本語をマスターしましょう！</h3>
+                <button class="btn--text btn--scroll-to" data-i18n="games.startGame">
+                    ゲームで学ぶ ↓
+                </button>
+            </div>
+            <div class="header__img-container">
+                <img src="img/444.jpg" class="header__img" alt="" data-i18n-alt="games.hero.imageAlt">
+            </div>
+        </div>
+    </header>
+
+    <section class="section section--hidden" id="section--1">
+        <div class="section__title">
+            <h2 class="section__description" data-i18n="games.section.special">特別ゲーム</h2>
+            <h3 class="section__header" data-i18n="games.section.specialDesc">RPG風の<strong>冒険</strong>で日本語を学ぼう</h3>
+        </div>
+
+        <div class="games-grid">
+
+            <!-- 言霊界游戏卡片 -->
+            <div class="game-card featured">
+                <div class="game-card__header">
+                    <div class="game-card__icon">
+                        <i class="fas fa-magic"></i>
+                    </div>
+                    <div class="game-card__difficulty special" data-i18n="games.difficulty.special">特別</div>
+                </div>
+                <div class="game-card__content">
+                    <h4 class="game-card__title" data-i18n="games.kotodama.title">言霊再生計画</h4>
+                    <p class="game-card__description" data-i18n="games.kotodama.description">
+                        崩壊した言霊界を救う壮大な冒険！単語、文法、読解の三つの試練を乗り越え、
+                        世界を修復しよう。RPG風の学習体験で日本語を楽しく習得！
+                    </p>
+                    <div class="game-card__stats">
+                        <span><i class="fas fa-clock"></i> <span data-i18n="games.kotodama.time">20-30分</span></span>
+                        <span><i class="fas fa-star"></i> 5.0/5</span>
+                        <span><i class="fas fa-users"></i> <span data-i18n="games.kotodama.status">新作！</span></span>
+                    </div>
+                    <button class="game-card__btn special" onclick="startKotodamaGame()" data-i18n="games.kotodama.startButton">
+                        冒険を始める
+                    </button>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+
+    <section class="section section--hidden" id="section--2">
+        <div class="section__title">
+            <h2 class="section__description" data-i18n="games.leaderboard.title">ランキング</h2>
+            <h3 class="section__header" data-i18n="games.leaderboard.subtitle">他の学習者と<strong>競い合おう</strong></h3>
+        </div>
+
+        <div class="leaderboard-container">
+            <div class="leaderboard-card">
+                <h4 data-i18n="games.leaderboard.weeklyTop">今週のトッププレイヤー</h4>
+                <div class="leaderboard-list">
+                    <div class="leaderboard-item">
+                        <span class="rank gold">1</span>
+                        <span class="player-name" data-i18n="games.leaderboard.player1">さくら</span>
+                        <span class="score" data-i18n="games.leaderboard.score1">15,420点</span>
+                    </div>
+                    <div class="leaderboard-item">
+                        <span class="rank silver">2</span>
+                        <span class="player-name" data-i18n="games.leaderboard.player2">たろう</span>
+                        <span class="score" data-i18n="games.leaderboard.score2">14,890点</span>
+                    </div>
+                    <div class="leaderboard-item">
+                        <span class="rank bronze">3</span>
+                        <span class="player-name" data-i18n="games.leaderboard.player3">はなこ</span>
+                        <span class="score" data-i18n="games.leaderboard.score3">13,567点</span>
+                    </div>
+                    <div class="leaderboard-item">
+                        <span class="rank">4</span>
+                        <span class="player-name" data-i18n="games.leaderboard.player4">けんじ</span>
+                        <span class="score" data-i18n="games.leaderboard.score4">12,234点</span>
+                    </div>
+                    <div class="leaderboard-item">
+                        <span class="rank">5</span>
+                        <span class="player-name" data-i18n="games.leaderboard.player5">みか</span>
+                        <span class="score" data-i18n="games.leaderboard.score5">11,789点</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="achievements-card">
+                <h4 data-i18n="games.achievements.title">実績バッジ</h4>
+                <div class="achievements-grid">
+                    <div class="achievement-item">
+                        <div class="achievement-icon">🏆</div>
+                        <span data-i18n="games.achievements.hiragana">ひらがなマスター</span>
+                    </div>
+                    <div class="achievement-item">
+                        <div class="achievement-icon">⭐</div>
+                        <span data-i18n="games.achievements.katakana">カタカナエキスパート</span>
+                    </div>
+                    <div class="achievement-item">
+                        <div class="achievement-icon">🎯</div>
+                        <span data-i18n="games.achievements.kanji">漢字ハンター</span>
+                    </div>
+                    <div class="achievement-item">
+                        <div class="achievement-icon">💬</div>
+                        <span data-i18n="games.achievements.conversation">会話の達人</span>
+                    </div>
+                    <div class="achievement-item">
+                        <div class="achievement-icon">🔥</div>
+                        <span data-i18n="games.achievements.streak">連続プレイ王</span>
+                    </div>
+                    <div class="achievement-item">
+                        <div class="achievement-icon">🌟</div>
+                        <span data-i18n="games.achievements.perfectionist">完璧主義者</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section--hidden section--sign-up" id="section--3">
+        <div class="section__title">
+            <h3 class="section__header" data-i18n="games.cta.title">
+                ゲームで楽しく学習して、日本語スキルを向上させましょう！
+            </h3>
+        </div>
+        <button class="button10">
+            <a class="abutton10" style="text-decoration: none;" href="./login.html" data-i18n="games.cta.button">今すぐ参加する</a>
+        </button>
+    </section>
+
+    <footer class="footer">
+        <ul class="footer__nav">
+            <li class="footer__item">
+                <a class="footer__link" href="./index.html" data-i18n="nav.home">ホーム</a>
+            </li>
+            <li class="footer__item">
+                <a class="footer__link" href="./about.html" data-i18n="nav.about">私たちについて</a>
+            </li>
+            <li class="footer__item">
+                <a class="footer__link" href="./quiz/quiz-main.html" data-i18n="nav.team">チーム紹介</a>
+            </li>
+            <li class="footer__item">
+                <a class="footer__link" href="./courses/index.html" data-i18n="nav.courses">コース</a>
+            </li>
+            <li class="footer__item">
+                <a class="footer__link" href="./games.html" data-i18n="nav.games">ゲーム</a>
+            </li>
+            <li class="footer__item">
+                <a class="footer__link" href="./quiz/quiz-system.html" data-i18n="nav.quiz">クイズ</a>
+            </li>
+            <li class="footer__item">
+                <a class="footer__link" href="./culture.html" data-i18n="nav.culture">日本文化</a>
+            </li>
+        </ul>
+        <img src="img/icon.png" alt="" data-i18n-alt="home.meta.logoAlt" class="footer__logo">
+        <p class="footer__copyright">
+            &copy; <span data-i18n="home.footer.copyright">著作権</span>
+            <a class="footer__link twitter-link" target="_blank" href="https://" data-i18n="home.footer.siteName">
+                日本語学習サイト
+            </a><br>
+        </p>
+    </footer>
+
+    <!-- チャットボット -->
+    <div class="bodycb">
+        <div class="chatbot-button-container">
+            <div class="chatbot-button" id="chatbotButton"></div>
+        </div>
+        <div class="chat-container" id="chatContainer">
+            <div class="chat-log" id="chatLog">
+                <div class="chat-message bot" data-i18n="home.chatbot.greeting1">こんにちは！</div>
+                <div class="chat-message bot" data-i18n="games.chatbot.greeting2">どのゲームで遊びたいですか？</div>
+            </div>
+            <div class="chat-input">
+                <input type="text" id="userInput" placeholder="" data-i18n-placeholder="home.chatbot.placeholder">
+                <img src="./img/send.png" alt="" data-i18n-alt="home.chatbot.sendAlt" id="sendButton">
+            </div>
+        </div>
+    </div>
+
+    <!-- サイドバー -->
+    <div class="bodysbar">
+        <div class="navbar active" id="navbar">
+            <ul>
+                <br><br>
+                <li><a href="./index.html" class="nav-link"><i class="fas fa-home"></i><span data-i18n="nav.home">ホーム</span></a></li>
+                <li><a href="./about.html"><i class="fas fa-info-circle"></i><span data-i18n="nav.about">私たちについて</span></a></li>
+                <li><a href="./quiz/quiz-main.html"><i class="fas fa-users"></i><span data-i18n="nav.team">チーム紹介</span></a></li>
+                <li><a href="./courses/index.html"><i class="fas fa-book"></i><span data-i18n="nav.courses">コース</span></a></li>
+                <li><a href="#" class="nav-link active"><i class="fas fa-gamepad"></i><span data-i18n="nav.games">ゲーム</span></a></li>
+                <li><a href="./culture.html"><i class="fas fa-torii-gate"></i><span data-i18n="nav.culture">日本文化</span></a></li>
+                <li><a href="./quiz/quiz-system.html"><i class="fas fa-laptop-code"></i><span data-i18n="nav.quiz">クイズ</span></a></li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function startKotodamaGame() {
+            // 跳转到言霊界游戏
+            window.location.href = './games/kotodama/index.html';
+        }
+    </script>
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" type="image/png" href="img/icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="query.css">
+    <title data-i18n="culture.meta.title">日本文化 | 日本語学習サイト</title>
+    <script defer src="script.js"></script>
+    <script defer src="js/i18n.js"></script>
+</head>
+
+<body class="mainbod">
+    <header class="header">
+        <nav class="nav">
+            <img src="./img/icon-logo.png" alt="" data-i18n-alt="home.meta.logoAlt" class="nav__logo" id="logo">
+            <img src="./img/logo.png" alt="" data-i18n-alt="home.meta.logoAlt" class="nav__logo__text">
+
+            <!-- 语言切换器 -->
+            <div class="language-switcher">
+                <button class="lang-btn active" data-lang="ja">
+                    <span class="flag">🇯🇵</span>
+                    <span class="lang-text">日</span>
+                </button>
+                <button class="lang-btn" data-lang="zh">
+                    <span class="flag">🇨🇳</span>
+                    <span class="lang-text">中</span>
+                </button>
+                <button class="lang-btn" data-lang="en">
+                    <span class="flag">🇺🇸</span>
+                    <span class="lang-text">En</span>
+                </button>
+            </div>
+
+            <ul class="nav__links">
+                <li class="nav__item">
+                    <a class="nav__link" href="./index.html" data-i18n="nav.home">ホーム</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="./about.html" data-i18n="nav.about">私たちについて</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="./courses/index.html" data-i18n="nav.courses">コース</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="./quiz/quiz-main.html" data-i18n="nav.team">チーム紹介</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="./games.html" data-i18n="nav.games">ゲーム</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="./quiz/quiz-system.html" data-i18n="nav.quiz">クイズ</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="#section--1" data-i18n="nav.culture">日本文化</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__linkregister" style="text-decoration: none;" href="./login.html">
+                        <strong data-i18n="nav.register">登録</strong>
+                    </a>
+                </li>
+            </ul>
+            <button class="btn-mobile-nav">
+                <ion-icon class="icon-mobile-nav" name="menu-outline"></ion-icon>
+                <ion-icon class="icon-mobile-nav" name="close-outline"></ion-icon>
+            </button>
+        </nav>
+
+        <div class="header__title">
+            <div class="header__text-container">
+                <h1 data-i18n="culture.title">日本文化を探求しよう</h1>
+                <h3 data-i18n="culture.subtitle">言語と文化は密接に関連しています<br>日本の豊かな文化を通じて日本語を深く理解しましょう</h3>
+                <button class="btn--text btn--scroll-to" data-i18n="culture.explore">
+                    文化を探索する ↓
+                </button>
+            </div>
+            <div class="header__img-container">
+                <img src="img/culture-hero.png" class="header__img" alt="" data-i18n-alt="culture.hero.imageAlt">
+            </div>
+        </div>
+    </header>
+
+    <section class="section section--hidden" id="section--1">
+        <div class="section__title">
+            <h2 class="section__description" data-i18n="culture.traditional.title">伝統文化</h2>
+            <h3 class="section__header" data-i18n="culture.traditional.subtitle">日本の<strong>美しい伝統</strong>を学びましょう</h3>
+        </div>
+        
+        <!-- 街道文化 -->
+        <div class="culture-category-container">
+            <div class="culture-carousel">
+                <div class="culture-slide-container">
+                    <div class="culture-slide active">
+                        <img src="文化介绍照片/街道1.jpg" alt="日本街道1" class="culture-slide-img">
+                    </div>
+                    <div class="culture-slide">
+                        <img src="文化介绍照片/街道1.png" alt="日本街道2" class="culture-slide-img">
+                    </div>
+                    <div class="culture-slide">
+                        <img src="文化介绍照片/街道2.png" alt="日本街道3" class="culture-slide-img">
+                    </div>
+                    <div class="culture-slide">
+                        <img src="文化介绍照片/街道4.jpg" alt="日本街道4" class="culture-slide-img">
+                    </div>
+                    <div class="culture-slide">
+                        <img src="文化介绍照片/街道5.jpg" alt="日本街道5" class="culture-slide-img">
+                    </div>
+                </div>
+                
+                <button class="culture-carousel-btn culture-carousel-btn-prev" onclick="changeStreetSlide(-1)">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="culture-carousel-btn culture-carousel-btn-next" onclick="changeStreetSlide(1)">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                
+                <div class="culture-carousel-indicators">
+                    <span class="culture-indicator active" onclick="currentStreetSlide(1)"></span>
+                    <span class="culture-indicator" onclick="currentStreetSlide(2)"></span>
+                    <span class="culture-indicator" onclick="currentStreetSlide(3)"></span>
+                    <span class="culture-indicator" onclick="currentStreetSlide(4)"></span>
+                    <span class="culture-indicator" onclick="currentStreetSlide(5)"></span>
+                </div>
+            </div>
+            
+            <div class="culture-content">
+                <h4 class="culture-title" data-i18n="culture.traditional.street.title">日本街道</h4>
+                <p class="culture-description" data-i18n="culture.traditional.street.description">
+                    日本的街道是一场传统与现代交融的视觉盛宴。有密集却有序的招牌艺术，从传统手写匾额到现代发光灯箱，层层叠叠却不觉杂乱，构成独特的城市天际线。街道两旁，百年木造町家老铺与玻璃幕墙的现代大楼比邻而居，形成跨越时空的和谐对话。
+                </p>
+                <div class="culture-features">
+                    <span class="culture-tag" data-i18n="culture.traditional.street.tag1">看板艺术</span>
+                    <span class="culture-tag" data-i18n="culture.traditional.street.tag2">町家建筑</span>
+                    <span class="culture-tag" data-i18n="culture.traditional.street.tag3">便利店文化</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 动漫文化 -->
+        <div class="culture-category-container">
+            <div class="culture-carousel">
+                <div class="culture-slide-container">
+                    <div class="culture-slide active">
+                        <img src="文化介绍照片/动漫1.png" alt="日本动漫1" class="culture-slide-img">
+                    </div>
+                    <div class="culture-slide">
+                        <img src="文化介绍照片/动漫2.png" alt="日本动漫2" class="culture-slide-img">
+                    </div>
+                    <div class="culture-slide">
+                        <img src="文化介绍照片/动漫4.jpg" alt="日本动漫3" class="culture-slide-img">
+                    </div>
+                    <div class="culture-slide">
+                        <img src="文化介绍照片/动漫6.jpg" alt="日本动漫4" class="culture-slide-img">
+                    </div>
+                </div>
+                
+                <button class="culture-carousel-btn culture-carousel-btn-prev" onclick="changeAnimeSlide(-1)">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="culture-carousel-btn culture-carousel-btn-next" onclick="changeAnimeSlide(1)">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                
+                <div class="culture-carousel-indicators">
+                    <span class="culture-indicator active" onclick="currentAnimeSlide(1)"></span>
+                    <span class="culture-indicator" onclick="currentAnimeSlide(2)"></span>
+                    <span class="culture-indicator" onclick="currentAnimeSlide(3)"></span>
+                    <span class="culture-indicator" onclick="currentAnimeSlide(4)"></span>
+                </div>
+            </div>
+            
+            <div class="culture-content">
+                <h4 class="culture-title" data-i18n="culture.traditional.anime.title">日本动漫</h4>
+                <p class="culture-description" data-i18n="culture.traditional.anime.description">
+                    作为一种独特的文化现象，其魅力远不止于视觉层面的冲击，更在于它深刻的精神内核与细腻的情感表达。它既是现代性的文化产物，又承载着日本传统的美学意识。动漫展现出惊人的包容性与思想深度，以隐喻和象征重构现实。
+                </p>
+                <div class="culture-features">
+                    <span class="culture-tag" data-i18n="culture.traditional.anime.tag1">物哀之美</span>
+                    <span class="culture-tag" data-i18n="culture.traditional.anime.tag2">情感表达</span>
+                    <span class="culture-tag" data-i18n="culture.traditional.anime.tag3">哲学思辨</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 电影文化 -->
+        <div class="culture-category-container">
+            <div class="culture-carousel">
+                <div class="culture-slide-container">
+                    <div class="culture-slide active">
+                        <img src="文化介绍照片/电影2.jpg" alt="日本电影1" class="culture-slide-img">
+                    </div>
+                    <div class="culture-slide">
+                        <img src="文化介绍照片/电影3.jpg" alt="日本电影2" class="culture-slide-img">
+                    </div>
+                    <div class="culture-slide">
+                        <img src="文化介绍照片/电影5.jpg" alt="日本电影3" class="culture-slide-img">
+                    </div>
+                    <div class="culture-slide">
+                        <img src="文化介绍照片/电影6.jpg" alt="日本电影4" class="culture-slide-img">
+                    </div>
+                </div>
+                
+                <button class="culture-carousel-btn culture-carousel-btn-prev" onclick="changeMovieSlide(-1)">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="culture-carousel-btn culture-carousel-btn-next" onclick="changeMovieSlide(1)">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                
+                <div class="culture-carousel-indicators">
+                    <span class="culture-indicator active" onclick="currentMovieSlide(1)"></span>
+                    <span class="culture-indicator" onclick="currentMovieSlide(2)"></span>
+                    <span class="culture-indicator" onclick="currentMovieSlide(3)"></span>
+                    <span class="culture-indicator" onclick="currentMovieSlide(4)"></span>
+                </div>
+            </div>
+            
+            <div class="culture-content">
+                <h4 class="culture-title" data-i18n="culture.traditional.movie.title">日本电影</h4>
+                <p class="culture-description" data-i18n="culture.traditional.movie.description">
+                    以其独特的审美哲学和叙事节奏，在世界影坛独树一帜。它不追求激烈冲突与华丽特效，而是在静寂中寻找生命的回响，在细微处捕捉情感的震颤。物哀之美渗透在每一帧画面中，让观者在静观中获得深层的情绪共鸣与生命体悟。
+                </p>
+                <div class="culture-features">
+                    <span class="culture-tag" data-i18n="culture.traditional.movie.tag1">审美哲学</span>
+                    <span class="culture-tag" data-i18n="culture.traditional.movie.tag2">长镜头美学</span>
+                    <span class="culture-tag" data-i18n="culture.traditional.movie.tag3">生命体悟</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section--hidden" id="section--2">
+        <div class="section__title">
+            <h2 class="section__description" data-i18n="culture.seasons.title">季節の文化</h2>
+            <h3 class="section__header" data-i18n="culture.seasons.subtitle">四季を通じて<strong>日本の美しさ</strong>を感じましょう</h3>
+        </div>
+
+        <div class="seasons-container">
+            <div class="season-card spring">
+                <div class="season-icon">🌸</div>
+                <h4 data-i18n="culture.seasons.spring.name">春（はる）</h4>
+                <div class="season-content">
+                    <h5 data-i18n="culture.seasons.spring.theme">桜の季節</h5>
+                    <p data-i18n="culture.seasons.spring.description">桜前線、花見、入学式など、新しい始まりの季節です。</p>
+                    <div class="season-vocabulary">
+                        <span class="vocab-tag" data-i18n="culture.seasons.spring.vocab1">桜</span>
+                        <span class="vocab-tag" data-i18n="culture.seasons.spring.vocab2">花見</span>
+                        <span class="vocab-tag" data-i18n="culture.seasons.spring.vocab3">入学式</span>
+                        <span class="vocab-tag" data-i18n="culture.seasons.spring.vocab4">新緑</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="season-card summer">
+                <div class="season-icon">🎆</div>
+                <h4 data-i18n="culture.seasons.summer.name">夏（なつ）</h4>
+                <div class="season-content">
+                    <h5 data-i18n="culture.seasons.summer.theme">祭りの季節</h5>
+                    <p data-i18n="culture.seasons.summer.description">花火大会、夏祭り、浴衣など、活気あふれる季節です。</p>
+                    <div class="season-vocabulary">
+                        <span class="vocab-tag" data-i18n="culture.seasons.summer.vocab1">花火</span>
+                        <span class="vocab-tag" data-i18n="culture.seasons.summer.vocab2">祭り</span>
+                        <span class="vocab-tag" data-i18n="culture.seasons.summer.vocab3">浴衣</span>
+                        <span class="vocab-tag" data-i18n="culture.seasons.summer.vocab4">夏休み</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="season-card autumn">
+                <div class="season-icon">🍁</div>
+                <h4 data-i18n="culture.seasons.autumn.name">秋（あき）</h4>
+                <div class="season-content">
+                    <h5 data-i18n="culture.seasons.autumn.theme">紅葉の季節</h5>
+                    <p data-i18n="culture.seasons.autumn.description">紅葉狩り、収穫祭、月見など、実りの季節です。</p>
+                    <div class="season-vocabulary">
+                        <span class="vocab-tag" data-i18n="culture.seasons.autumn.vocab1">紅葉</span>
+                        <span class="vocab-tag" data-i18n="culture.seasons.autumn.vocab2">收穫</span>
+                        <span class="vocab-tag" data-i18n="culture.seasons.autumn.vocab3">月見</span>
+                        <span class="vocab-tag" data-i18n="culture.seasons.autumn.vocab4">栗</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="season-card winter">
+                <div class="season-icon">⛄</div>
+                <h4 data-i18n="culture.seasons.winter.name">冬（ふゆ）</h4>
+                <div class="season-content">
+                    <h5 data-i18n="culture.seasons.winter.theme">雪の季節</h5>
+                    <p data-i18n="culture.seasons.winter.description">雪化粧、お正月、温泉など、静寂と温かさの季節です。</p>
+                    <div class="season-vocabulary">
+                        <span class="vocab-tag" data-i18n="culture.seasons.winter.vocab1">雪</span>
+                        <span class="vocab-tag" data-i18n="culture.seasons.winter.vocab2">正月</span>
+                        <span class="vocab-tag" data-i18n="culture.seasons.winter.vocab3">温泉</span>
+                        <span class="vocab-tag" data-i18n="culture.seasons.winter.vocab4">こたつ</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section--hidden" id="section--3">
+        <div class="section__title">
+            <h2 class="section__description" data-i18n="culture.modern.title">現代文化</h2>
+            <h3 class="section__header" data-i18n="culture.modern.subtitle">現代日本の<strong>ポップカルチャー</strong></h3>
+        </div>
+
+        <div class="modern-culture-grid">
+            <div class="modern-culture-card">
+                <div class="modern-culture-icon">
+                    <i class="fas fa-tv"></i>
+                </div>
+                <h4 data-i18n="culture.modern.anime.title">アニメ・マンガ</h4>
+                <p data-i18n="culture.modern.anime.description">世界中で愛される日本のアニメーションとマンガ文化。現代日本語の表現を学ぶのに最適です。</p>
+            </div>
+
+            <div class="modern-culture-card">
+                <div class="modern-culture-icon">
+                    <i class="fas fa-music"></i>
+                </div>
+                <h4 data-i18n="culture.modern.music.title">J-POP・音楽</h4>
+                <p data-i18n="culture.modern.music.description">日本のポピュラー音楽。歌詞を通じて自然な日本語表現や感情表現を学ぶことができます。</p>
+            </div>
+
+            <div class="modern-culture-card">
+                <div class="modern-culture-icon">
+                    <i class="fas fa-utensils"></i>
+                </div>
+                <h4 data-i18n="culture.modern.food.title">食文化</h4>
+                <p data-i18n="culture.modern.food.description">寿司、ラーメン、弁当など、日本の豊かな食文化。食事に関する日本語表現が豊富です。</p>
+            </div>
+
+            <div class="modern-culture-card">
+                <div class="modern-culture-icon">
+                    <i class="fas fa-gamepad"></i>
+                </div>
+                <h4 data-i18n="culture.modern.games.title">ゲーム文化</h4>
+                <p data-i18n="culture.modern.games.description">任天堂、ソニーなど、日本発のゲーム文化。ゲームを通じて楽しく日本語を学習できます。</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section--hidden section--sign-up">
+        <div class="section__title">
+            <h3 class="section__header" data-i18n="culture.cta.title">
+                文化と言語を一緒に学んで、より深い日本語理解を目指しましょう！
+            </h3>
+        </div>
+        <button class="button10">
+            <a class="abutton10" style="text-decoration: none;" href="./courses/index.html" data-i18n="culture.cta.button">文化コースを見る</a>
+        </button>
+    </section>
+
+    <footer class="footer">
+        <ul class="footer__nav">
+            <li class="footer__item">
+                <a class="footer__link" href="./about.html" data-i18n="nav.about">私たちについて</a>
+            </li>
+            <li class="footer__item">
+                <a class="footer__link" href="./index.html" data-i18n="nav.home">ホーム</a>
+            </li>
+            <li class="footer__item">
+                <a class="footer__link" href="./quiz/quiz-main.html" data-i18n="nav.team">チーム紹介</a>
+            </li>
+            <li class="footer__item">
+                <a class="footer__link" href="./courses/index.html" data-i18n="nav.courses">コース</a>
+            </li>
+            <li class="footer__item">
+                <a class="footer__link" href="./quiz/quiz-system.html" data-i18n="nav.quiz">クイズ</a>
+            </li>
+            <li class="footer__item">
+                <a class="footer__link" href="./culture.html" data-i18n="nav.culture">日本文化</a>
+            </li>
+            <li class="footer__item">
+                <a class="footer__link" href="./games.html" data-i18n="nav.games">ゲーム</a>
+            </li>
+        </ul>
+        <img src="img/icon.png" alt="" data-i18n-alt="home.meta.logoAlt" class="footer__logo">
+        <p class="footer__copyright">
+            &copy; <span data-i18n="home.footer.copyright">著作権</span>
+            <a class="footer__link twitter-link" target="_blank" href="https://" data-i18n="home.footer.siteName">
+                日本語学習サイト
+            </a><br>
+        </p>
+    </footer>
+
+    <!-- チャットボット -->
+    <div class="bodycb">
+        <div class="chatbot-button-container">
+            <div class="chatbot-button" id="chatbotButton"></div>
+        </div>
+        <div class="chat-container" id="chatContainer">
+            <div class="chat-log" id="chatLog">
+                <div class="chat-message bot" data-i18n="home.chatbot.greeting1">こんにちは！</div>
+                <div class="chat-message bot" data-i18n="culture.chatbot.greeting2">どの日本文化に興味がありますか？</div>
+            </div>
+            <div class="chat-input">
+                <input type="text" id="userInput" placeholder="" data-i18n-placeholder="home.chatbot.placeholder">
+                <img src="./img/send.png" alt="" data-i18n-alt="home.chatbot.sendAlt" id="sendButton">
+            </div>
+        </div>
+    </div>
+
+    <!-- サイドバー -->
+    <div class="bodysbar">
+        <div class="navbar active" id="navbar">
+            <ul>
+                <br><br>
+                <li><a href="./index.html" class="nav-link"><i class="fas fa-home"></i><span data-i18n="nav.home">ホーム</span></a></li>
+                <li><a href="./about.html"><i class="fas fa-info-circle"></i><span data-i18n="nav.about">私たちについて</span></a></li>
+                <li><a href="./quiz/quiz-main.html"><i class="fas fa-users"></i><span data-i18n="nav.team">チーム紹介</span></a></li>
+                <li><a href="./courses/index.html"><i class="fas fa-book"></i><span data-i18n="nav.courses">コース</span></a></li>
+                <li><a href="./games.html"><i class="fas fa-gamepad"></i><span data-i18n="nav.games">ゲーム</span></a></li>
+                <li><a href="./quiz/quiz-system.html"><i class="fas fa-laptop-code"></i><span data-i18n="nav.quiz">クイズ</span></a></li>
+                <li><a href="#" class="nav-link active"><i class="fas fa-torii-gate"></i><span data-i18n="nav.culture">日本文化</span></a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 文化轮播图 JavaScript -->
+    <script>
+        // 街道轮播图变量
+        let currentStreetSlideIndex = 0;
+        let streetSlides, streetIndicators, totalStreetSlides;
+
+        // 动漫轮播图变量
+        let currentAnimeSlideIndex = 0;
+        let animeSlides, animeIndicators, totalAnimeSlides;
+
+        // 电影轮播图变量
+        let currentMovieSlideIndex = 0;
+        let movieSlides, movieIndicators, totalMovieSlides;
+
+        // 初始化所有轮播图
+        function initAllCarousels() {
+            initStreetCarousel();
+            initAnimeCarousel();
+            initMovieCarousel();
+        }
+
+        // 初始化街道轮播图
+        function initStreetCarousel() {
+            streetSlides = document.querySelectorAll('.culture-category-container:nth-child(2) .culture-slide');
+            streetIndicators = document.querySelectorAll('.culture-category-container:nth-child(2) .culture-indicator');
+            totalStreetSlides = streetSlides.length;
+
+            if (totalStreetSlides > 0) {
+                showStreetSlide(0);
+            }
+        }
+
+        // 初始化动漫轮播图
+        function initAnimeCarousel() {
+            animeSlides = document.querySelectorAll('.culture-category-container:nth-child(3) .culture-slide');
+            animeIndicators = document.querySelectorAll('.culture-category-container:nth-child(3) .culture-indicator');
+            totalAnimeSlides = animeSlides.length;
+
+            if (totalAnimeSlides > 0) {
+                showAnimeSlide(0);
+            }
+        }
+
+        // 初始化电影轮播图
+        function initMovieCarousel() {
+            movieSlides = document.querySelectorAll('.culture-category-container:nth-child(4) .culture-slide');
+            movieIndicators = document.querySelectorAll('.culture-category-container:nth-child(4) .culture-indicator');
+            totalMovieSlides = movieSlides.length;
+
+            if (totalMovieSlides > 0) {
+                showMovieSlide(0);
+            }
+        }
+
+        // 显示街道轮播图
+        function showStreetSlide(index) {
+            if (!streetSlides || !streetIndicators) return;
+
+            streetSlides.forEach(slide => slide.classList.remove('active'));
+            streetIndicators.forEach(indicator => indicator.classList.remove('active'));
+
+            if (streetSlides[index] && streetIndicators[index]) {
+                streetSlides[index].classList.add('active');
+                streetIndicators[index].classList.add('active');
+            }
+        }
+
+        // 显示动漫轮播图
+        function showAnimeSlide(index) {
+            if (!animeSlides || !animeIndicators) return;
+
+            animeSlides.forEach(slide => slide.classList.remove('active'));
+            animeIndicators.forEach(indicator => indicator.classList.remove('active'));
+
+            if (animeSlides[index] && animeIndicators[index]) {
+                animeSlides[index].classList.add('active');
+                animeIndicators[index].classList.add('active');
+            }
+        }
+
+        // 显示电影轮播图
+        function showMovieSlide(index) {
+            if (!movieSlides || !movieIndicators) return;
+
+            movieSlides.forEach(slide => slide.classList.remove('active'));
+            movieIndicators.forEach(indicator => indicator.classList.remove('active'));
+
+            if (movieSlides[index] && movieIndicators[index]) {
+                movieSlides[index].classList.add('active');
+                movieIndicators[index].classList.add('active');
+            }
+        }
+
+        // 街道轮播图控制函数
+        function changeStreetSlide(direction) {
+            currentStreetSlideIndex += direction;
+            if (currentStreetSlideIndex >= totalStreetSlides) {
+                currentStreetSlideIndex = 0;
+            } else if (currentStreetSlideIndex < 0) {
+                currentStreetSlideIndex = totalStreetSlides - 1;
+            }
+            showStreetSlide(currentStreetSlideIndex);
+        }
+
+        function currentStreetSlide(index) {
+            currentStreetSlideIndex = index - 1;
+            showStreetSlide(currentStreetSlideIndex);
+        }
+
+        // 动漫轮播图控制函数
+        function changeAnimeSlide(direction) {
+            currentAnimeSlideIndex += direction;
+            if (currentAnimeSlideIndex >= totalAnimeSlides) {
+                currentAnimeSlideIndex = 0;
+            } else if (currentAnimeSlideIndex < 0) {
+                currentAnimeSlideIndex = totalAnimeSlides - 1;
+            }
+            showAnimeSlide(currentAnimeSlideIndex);
+        }
+
+        function currentAnimeSlide(index) {
+            currentAnimeSlideIndex = index - 1;
+            showAnimeSlide(currentAnimeSlideIndex);
+        }
+
+        // 电影轮播图控制函数
+        function changeMovieSlide(direction) {
+            currentMovieSlideIndex += direction;
+            if (currentMovieSlideIndex >= totalMovieSlides) {
+                currentMovieSlideIndex = 0;
+            } else if (currentMovieSlideIndex < 0) {
+                currentMovieSlideIndex = totalMovieSlides - 1;
+            }
+            showMovieSlide(currentMovieSlideIndex);
+        }
+
+        function currentMovieSlide(index) {
+            currentMovieSlideIndex = index - 1;
+            showMovieSlide(currentMovieSlideIndex);
+        }
+
+        // 页面加载完成后初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(() => {
+                initAllCarousels();
+            }, 100);
+        });
+    </script>
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
